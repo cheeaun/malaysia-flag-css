@@ -1,36 +1,12 @@
 <!DOCTYPE html>
 <title>Pure CSS Malaysia Flag</title>
 <style>
-html, body{
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
-body{
-	font-family: helvetica, arial, sans-serif;
-	text-align: center;
-	background-image: -moz-radial-gradient(bottom center, #fff 50%, #92b2d8 80%, #265b96);
-}
-h1{
-	letter-spacing: -0.05em;
-	text-shadow: 0 1px #fff;
-	margin: 0;
-	padding: 0;
-	color: #444;
-	line-height: 80px;
-}
 #msia-flag{
 	width: 280px;
 	height: 140px;
 	background-color: #fff;
-	position: absolute;
-	top: 100px;
-	left: 40%;
+	position: relative;
 	margin: 10px 0 0 10px;
-	box-shadow: 3px 3px 12px rgba(0,0,0,.1);
-	-moz-box-shadow: 3px 3px 12px rgba(0,0,0,.1);
-	-webkit-box-shadow: 3px 3px 12px rgba(0,0,0,.1);
 }
 #msia-flag div{
 	position: absolute;
@@ -89,7 +65,7 @@ h1{
 	width: 0;
 	height: 20px;
 	border-width: 15px 3px 15px 0;
-	border-color: transparent #ffd100;
+	border-color: #0035ad #ffd100;
 	border-style: solid;
 	right: 50%;
 	-moz-transform-origin: right center;
@@ -107,13 +83,12 @@ h1{
 	width: 0;
 	height: 20px;
 	border-width: 15px 0 15px 3px;
-	border-color: transparent #ffd100;
+	border-color: #0035ad #ffd100;
 	border-style: solid;
 	position: absolute;
 	left: 2.75px;
 	top: -15px;
 }
-/* The :before stuff here is a nasty hack to hide those lines from Firefox. Don't try this at home. */
 #msia-flag .star-1:before,
 #msia-flag .star-2:before,
 #msia-flag .star-3:before,
@@ -187,40 +162,7 @@ h1{
 #msia-flag .red-7{
 	top: 120px;
 }
-#pole{
-	position: absolute;
-	width: 10px;
-	height: 100%;
-	top: 100px;
-	left: 40%;
-	background-image: -moz-linear-gradient(left, #ccc, #eee 30%, #999);
-	background-image: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(30%, #eee), to(#999));
-	box-shadow: 3px 3px 12px rgba(0,0,0,.1);
-	-moz-box-shadow: 3px 3px 12px rgba(0,0,0,.1);
-	-webkit-box-shadow: 3px 3px 12px rgba(0,0,0,.1);
-}
-#pole:before{
-	content: '';
-	display: block;
-	width: 16px;
-	height: 16px;
-	border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	background-image: -moz-radial-gradient(30% 30%, #fff 10%, #ddd, #333);
-	background-image: -webkit-gradient(radial, 4.8 4.8, 0, 4.8 4.8, 16, from(#fff), color-stop(10%, #fff), color-stop(45%, #ddd), to(#333));
-	position: absolute;
-	left: -4px;
-	top: -8px;
-}
-footer{
-	position: absolute;
-	bottom: 2px;
-	right: 2px;
-	font-size: 11px;
-}
 </style>
-<h1>Pure CSS Malaysia Flag</h1>
 <div id="msia-flag">
 <div class="blue">
 	<div class="moon"></div>
@@ -244,21 +186,3 @@ footer{
 <div class="red red-6"></div>
 <div class="red red-7"></div>
 </div>
-<div id="pole"></div>
-<footer>
-Constructed roughly based on <a href="http://en.wikipedia.org/wiki/File:Construction_sheet_of_Flag_of_Malaysia.svg">this sheet</a>. View <a href="flag.html">only the flag</a>. Or <a href="http://en.wikipedia.org/wiki/Flag_of_Malaysia">learn more</a>. Tested working on Firefox and Chrome.
-</footer>
-<script>
-// has to calculate things manually in Webkit :(
-// emulating roughly the 'farthest-corner' size from -moz-radial-gradient
-if (navigator.userAgent.indexOf('WebKit') != -1){
-	var setBg = function(){
-		var width = Math.max(window.innerWidth/2, 400);
-		var height = window.innerHeight/2;
-		var radius = Math.sqrt(width*width + height*height);
-		document.body.style.backgroundImage = '-webkit-gradient(radial, center bottom, 0, center bottom, ' + radius*1.25 + ', from(#fff), color-stop(50%, #fff), color-stop(80%, #92b2d8), to(#265b96))';
-	};
-	setBg();
-	window.addEventListener('resize', setBg);
-}
-</script>
